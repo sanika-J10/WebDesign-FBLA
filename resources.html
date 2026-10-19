@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search and filter community resources in the Cumming and Alpharetta area.">
+  <title>Explore Resources | CommonGround</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/resources.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Common<span>Ground</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="resources.html" aria-current="page">Explore</a>
+        <a href="events.html">Events</a>
+        <a href="saved.html">Saved</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container section">
+    <p class="eyebrow">THE COMMUNITY DIRECTORY</p>
+    <h1>Explore resources.</h1>
+    <p>Find services, programs, and opportunities relevant to you.</p>
+
+    <section class="filter-panel" aria-label="Search and filters">
+      <label for="resource-query">Search resources</label>
+      <input id="resource-query" type="search"
+        placeholder="Name, service, or keyword">
+
+      <div class="filter-grid">
+        <div>
+          <label for="category-filter">Category</label>
+          <select id="category-filter">
+            <option value="">All categories</option>
+            <option value="Education">Education & Youth</option>
+            <option value="Food & Essentials">Food & Essentials</option>
+            <option value="Recreation">Parks & Recreation</option>
+            <option value="Volunteering">Volunteering</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="city-filter">Location</label>
+          <select id="city-filter">
+            <option value="">All locations</option>
+            <option value="Cumming">Cumming</option>
+            <option value="Alpharetta">Alpharetta</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sort-filter">Sort results</label>
+          <select id="sort-filter">
+            <option value="name">Name: A–Z</option>
+            <option value="city">City</option>
+            <option value="category">Category</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="clear-filters" class="secondary-button" type="button">
+        Clear filters
+      </button>
+    </section>
+
+    <div class="results-heading">
+      <h2>Available resources</h2>
+      <p id="results-count" aria-live="polite"></p>
+    </div>
+
+    <div id="resource-results" class="resource-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="brand brand-footer" href="index.html">Common<span>Ground</span></a>
+      <p>An independent student-created community directory.</p>
+    </div>
+  </footer>
+</body>
+</html>
