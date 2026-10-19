@@ -4,20 +4,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Connect</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Discover community resources, local programs, and events around Cumming and Alpharetta, Georgia.">
+  <title>CommonGround | Community Resources</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>Community Connect</h1>
-    <p>Your guide to local resources, services, and events.</p>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">Common<span>Ground</span></a>
+
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="resources.html">Explore</a>
+        <a href="events.html">Events</a>
+        <a href="saved.html">Saved</a>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <h2>Find What You Need</h2>
-    <p>Discover resources that help our community thrive.</p>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">YOUR COMMUNITY, CONNECTED</p>
+        <h1>Find what you need.<br>Discover what's nearby.</h1>
+        <p class="hero-description">
+          Explore local programs, community services, and
+          opportunities to get involved around North Fulton
+          and Forsyth County.
+        </p>
+
+        <form id="home-search" class="search-form" role="search">
+          <label class="sr-only" for="home-query">
+            Search community resources
+          </label>
+          <input
+            id="home-query"
+            type="search"
+            placeholder="Try “tutoring” or “food assistance”"
+          >
+          <button type="submit">Find resources</button>
+        </form>
+
+        <p class="search-hint">
+          Explore education, essential services, events, and more.
+        </p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <p class="eyebrow">START EXPLORING</p>
+      <h2>What are you looking for?</h2>
+      <div class="category-grid">
+        <a class="category-card" href="resources.html?category=Education">
+          <span class="category-icon" aria-hidden="true">✳</span>
+          <h3>Education & Youth</h3>
+          <p>Learning programs and youth opportunities.</p>
+        </a>
+
+        <a class="category-card" href="resources.html?category=Food%20%26%20Essentials">
+          <span class="category-icon" aria-hidden="true">♡</span>
+          <h3>Food & Essentials</h3>
+          <p>Basic-needs services and community support.</p>
+        </a>
+
+        <a class="category-card" href="resources.html?category=Recreation">
+          <span class="category-icon" aria-hidden="true">↗</span>
+          <h3>Parks & Recreation</h3>
+          <p>Activities, facilities, and ways to get outside.</p>
+        </a>
+
+        <a class="category-card" href="resources.html?category=Volunteering">
+          <span class="category-icon" aria-hidden="true">♡</span>
+          <h3>Volunteer</h3>
+          <p>Find ways to contribute to your community.</p>
+        </a>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">A GOOD PLACE TO START</p>
+          <h2>Explore local resources</h2>
+        </div>
+        <a href="resources.html">View all resources →</a>
+      </div>
+
+      <div id="featured-resources" class="resource-grid"></div>
+    </section>
+
+    <section class="community-banner">
+      <div class="container banner-content">
+        <div>
+          <p class="eyebrow">MAKE A DIFFERENCE</p>
+          <h2>Small actions build stronger communities.</h2>
+          <p>Discover local events and ways to get involved.</p>
+        </div>
+        <a class="button button-light" href="events.html">
+          Explore events →
+        </a>
+      </div>
+    </section>
   </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <a class="brand brand-footer" href="index.html">Common<span>Ground</span></a>
+      <p>An independent student-created community directory.</p>
+      <div>
+        <a href="resources.html">Explore</a>
+        <a href="events.html">Events</a>
+        <a href="saved.html">Saved resources</a>
+      </div>
+      <p class="footer-note">
+        Verify service details with each organization before visiting.
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
