@@ -435,3 +435,65 @@ select {
     animation-duration: 0.01ms !important;
   }
 }
+
+.filter-panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  margin-block: 32px;
+}
+
+.filter-panel label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.filter-panel input,
+.filter-panel select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #AAB8B0;
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-block: 20px;
+}
+
+.secondary-button {
+  background: white;
+  border: 1px solid var(--forest);
+  color: var(--forest);
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 36px;
+  text-align: center;
+  background: white;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-card);
+}
+
+@media (max-width: 650px) {
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+}
