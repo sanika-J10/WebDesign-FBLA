@@ -549,3 +549,26 @@ select {
   font-weight: 700;
   line-height: 1.4;
 }
+
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.resource-card h3 {
+  margin-top: 16px;
+  overflow-wrap: anywhere;
+}
+
+.resource-card > p {
+  overflow-wrap: anywhere;
+}
+
+.card-actions {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 20px;
+}
