@@ -82,3 +82,69 @@ clearButton.addEventListener("click", () => {
 });
 
 filterResources();
+
+
+const detailContainer =
+  document.querySelector("#resource-detail");
+
+const requestedId = parameters.get("id");
+
+if (requestedId) {
+  const resource = resources.find(
+    item => item.id === requestedId
+  );
+
+  // Hide the directory controls when viewing one resource.
+  document.querySelector(".filter-panel").hidden = true;
+  document.querySelector(".results-heading").hidden = true;
+  resultsContainer.hidden = true;
+
+  detailContainer.hidden = false;
+  detailContainer.replaceChildren();
+
+  if (!resource) {
+    const message = document.createElement("p");
+    message.textContent =
+      "This resource could not be found. Please return to the directory.";
+
+    const back = document.createElement("a");
+    back.href = "resources.html";
+    back.textContent = "← Back to resources";
+
+    detailContainer.append(message, back);
+  } else {
+    const back = document.createElement("a");
+    back.href = "resources.html";
+    back.textContent = "← Back to all resources";
+
+    const heading = document.createElement("h1");
+    heading.textContent = resource.name;
+
+    const category = document.createElement("p");
+    category.className = "resource-meta";
+    category.textContent =
+      `${resource.category} · ${resource.city}`;
+
+    const description = document.createElement("p");
+    description.textContent = resource.description;
+
+    const audience = document.createElement("p");
+    audience.textContent = `Who it's for: ${resource.audience}`;
+
+    const cost = document.createElement("p");
+    cost.textContent = `Cost: ${resource.cost}`;
+
+    const website = document.createElement("a");
+    website.href = resource.website;
+    website.target = "_blank";
+    website.rel = "noopener noreferrer";
+    website.textContent = "Visit official website ↗";
+
+    detailContainer.append(
+      back, heading, category, description,
+      audience, cost, website
+    );
+
+    detailContainer.classList.add("detail-panel");
+  }
+}
