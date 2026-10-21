@@ -497,3 +497,26 @@ select {
     grid-template-columns: 1fr;
   }
 }
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.save-button {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--forest);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.save-button[aria-pressed="true"] {
+  background: var(--sage);
+  border-color: var(--forest-light);
+}
