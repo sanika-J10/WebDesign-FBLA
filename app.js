@@ -1,4 +1,3 @@
-
 function createResourceCard(resource) {
   const article = document.createElement("article");
   article.className = "resource-card";
@@ -14,13 +13,41 @@ function createResourceCard(resource) {
   const description = document.createElement("p");
   description.textContent = resource.description;
 
+  const actions = document.createElement("div");
+  actions.className = "card-actions";
+
   const details = document.createElement("a");
   details.className = "text-link";
   details.href =
     `resources.html?id=${encodeURIComponent(resource.id)}`;
   details.textContent = "View details →";
 
-  article.append(title, category, description, details);
+  const saveButton = document.createElement("button");
+  saveButton.className = "save-button";
+
+  function updateButton() {
+    const isSaved = getSavedIds().includes(resource.id);
+
+    saveButton.textContent = isSaved
+      ? "♥ Saved"
+      : "♡ Save";
+
+    saveButton.setAttribute("aria-pressed", String(isSaved));
+    saveButton.setAttribute(
+      "aria-label",
+      `${isSaved ? "Remove" : "Save"} ${resource.name}`
+    );
+  }
+
+  saveButton.addEventListener("click", () => {
+    toggleSaved(resource.id);
+    updateButton();
+  });
+
+  updateButton();
+
+  actions.append(details, saveButton);
+  article.append(title, category, description, actions);
 
   return article;
 }
@@ -67,4 +94,35 @@ if (homeSearch) {
 
     window.location.href = destination;
   });
+}
+
+function getSavedIds() {
+  try {
+    const saved = JSON.parse(
+      localStorage.getItem("commonground-saved") || "[]"
+    );
+
+    return Array.isArray(saved)
+      ? saved.filter(id => typeof id === "string")
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveIds(ids) {
+  localStorage.setItem(
+    "commonground-saved",
+    JSON.stringify(ids)
+  );
+}
+
+function toggleSaved(id) {
+  const saved = getSavedIds();
+
+  const updated = saved.includes(id)
+    ? saved.filter(savedId => savedId !== id)
+    : [...saved, id];
+
+  saveIds(updated);
 }
