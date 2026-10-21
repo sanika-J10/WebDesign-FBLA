@@ -572,3 +572,127 @@ select {
   margin-top: auto;
   padding-top: 20px;
 }
+
+/* ===== Suggest a Resource Form ===== */
+
+.suggest-section {
+  max-width: 760px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+.suggest-section h2 {
+  color: var(--text-color, #24352b);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.suggest-section > p {
+  color: var(--muted-color, #66736a);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.suggest-form {
+  background: #ffffff;
+  border: 1px solid #dce5dd;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(31, 61, 43, 0.07);
+  display: grid;
+  gap: 18px;
+}
+
+.suggest-form .form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.suggest-form label {
+  font-weight: 600;
+  color: #2d4335;
+  font-size: 0.95rem;
+}
+
+.suggest-form input,
+.suggest-form select,
+.suggest-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #cbd7cd;
+  border-radius: 10px;
+  background: #fbfdfb;
+  color: #26372c;
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.suggest-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.suggest-form input:focus,
+.suggest-form select:focus,
+.suggest-form textarea:focus {
+  outline: none;
+  border-color: #398052;
+  box-shadow: 0 0 0 3px rgba(57, 128, 82, 0.16);
+}
+
+.suggest-form input::placeholder,
+.suggest-form textarea::placeholder {
+  color: #89958c;
+}
+
+.suggest-form button {
+  justify-self: start;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 22px;
+  background: #286b43;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.suggest-form button:hover {
+  background: #1e5333;
+  transform: translateY(-1px);
+}
+
+.suggest-form button:focus-visible {
+  outline: 3px solid #80b991;
+  outline-offset: 3px;
+}
+
+.suggest-form .form-note {
+  color: #66736a;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Suggestion Survey */
+@media (max-width: 600px) {
+  .suggest-section {
+    margin: 28px auto;
+    padding: 0 16px;
+  }
+
+  .suggest-section h2 {
+    font-size: 1.65rem;
+  }
+
+  .suggest-form {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .suggest-form button {
+    width: 100%;
+  }
+}
