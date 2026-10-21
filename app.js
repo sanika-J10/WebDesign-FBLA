@@ -4,11 +4,10 @@ function createResourceCard(resource) {
 
   const title = document.createElement("h3");
   title.textContent = resource.name;
-
-  const category = document.createElement("p");
-  category.className = "resource-meta";
-  category.textContent =
-    `${resource.category} · ${resource.city}`;
+  
+  const category = document.createElement("span");
+  category.className = "category-badge";
+  category.textContent = resource.category;
 
   const description = document.createElement("p");
   description.textContent = resource.description;
