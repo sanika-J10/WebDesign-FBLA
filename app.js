@@ -125,3 +125,24 @@ function toggleSaved(id) {
 
   saveIds(updated);
 }
+
+const suggestForm = document.querySelector("#suggest-form");
+
+if (suggestForm) {
+  suggestForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const name = document.querySelector("#suggest-name").value.trim();
+    const url = document.querySelector("#suggest-url").value.trim();
+    const category = document.querySelector("#suggest-category").value;
+
+    if (!name || !url || !category) {
+      return;
+    }
+
+    document.querySelector("#suggest-feedback").textContent =
+      "Thanks! This demo form does not send submissions. Please contact our team through the project contact information.";
+
+    suggestForm.reset();
+  });
+}
