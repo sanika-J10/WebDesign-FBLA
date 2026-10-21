@@ -520,3 +520,21 @@ select {
   background: var(--sage);
   border-color: var(--forest-light);
 }
+
+
+.detail-panel {
+  background: white;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.detail-panel h1 {
+  margin-top: 32px;
+}
+
+.detail-panel > a:last-child {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 700;
+}
