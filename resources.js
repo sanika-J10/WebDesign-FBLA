@@ -1,4 +1,3 @@
-
 const queryInput = document.querySelector("#resource-query");
 const categoryFilter = document.querySelector("#category-filter");
 const cityFilter = document.querySelector("#city-filter");
@@ -6,6 +5,7 @@ const sortFilter = document.querySelector("#sort-filter");
 const clearButton = document.querySelector("#clear-filters");
 const resultsContainer = document.querySelector("#resource-results");
 const resultsCount = document.querySelector("#results-count");
+const detailContainer = document.querySelector("#resource-detail");
 
 const parameters = new URLSearchParams(window.location.search);
 
@@ -16,6 +16,7 @@ const allowedCategories = [
   "",
   "Education",
   "Food & Essentials",
+  "Financial Assistance",
   "Recreation",
   "Volunteering"
 ];
@@ -36,13 +37,29 @@ function filterResources() {
       resource.category,
       resource.city,
       resource.description,
-      resource.audience
-    ].join(" ").toLowerCase();
+      resource.audience,
+      resource.cost,
+      resource.address,
+      resource.eligibility,
+      resource.appointment,
+      resource.importantNote,
+      resource.phone,
+      ...(resource.serviceArea || []),
+      ...(resource.services || []),
+      ...(resource.tags || []),
+      ...Object.keys(resource.hours || {}),
+      ...Object.values(resource.hours || {})
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
 
     const matchesQuery = searchableText.includes(query);
+
     const matchesCategory =
       !selectedCategory ||
       resource.category === selectedCategory;
+
     const matchesCity =
       !selectedCity ||
       resource.city === selectedCity;
@@ -51,7 +68,9 @@ function filterResources() {
   });
 
   results.sort((a, b) =>
-    a[sortBy].localeCompare(b[sortBy])
+    String(a[sortBy] || "").localeCompare(
+      String(b[sortBy] || "")
+    )
   );
 
   if (results.length === 0) {
@@ -81,70 +100,270 @@ clearButton.addEventListener("click", () => {
   filterResources();
 });
 
-filterResources();
+function addTextElement(parent, tag, text, className = "") {
+  if (!text) return;
 
+  const element = document.createElement(tag);
+  element.textContent = text;
 
-const detailContainer =
-  document.querySelector("#resource-detail");
+  if (className) {
+    element.className = className;
+  }
+
+  parent.appendChild(element);
+}
+
+function addSection(parent, headingText) {
+  const section = document.createElement("section");
+  section.className = "detail-section";
+
+  const heading = document.createElement("h2");
+  heading.textContent = headingText;
+
+  section.appendChild(heading);
+  parent.appendChild(section);
+
+  return section;
+}
+
+function addExternalLink(parent, label, url, className = "text-link") {
+  if (!url || !/^https?:\/\//i.test(url)) return;
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = label;
+  link.className = className;
+
+  parent.appendChild(link);
+}
+
+function addPhoneLink(parent, phone) {
+  if (!phone) return;
+
+  const paragraph = document.createElement("p");
+  paragraph.append("Phone: ");
+
+  const link = document.createElement("a");
+  link.href = `tel:${phone.replace(/[^\d+]/g, "")}`;
+  link.textContent = phone;
+
+  paragraph.appendChild(link);
+  parent.appendChild(paragraph);
+}
+
+function addList(parent, items) {
+  if (!Array.isArray(items) || items.length === 0) return;
+
+  const list = document.createElement("ul");
+
+  items.forEach(item => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    list.appendChild(listItem);
+  });
+
+  parent.appendChild(list);
+}
+
+function renderResourceDetail(resource) {
+  detailContainer.replaceChildren();
+  detailContainer.hidden = false;
+  detailContainer.classList.add("detail-panel");
+
+  const back = document.createElement("a");
+  back.href = "resources.html";
+  back.textContent = "← Back to all resources";
+  back.className = "text-link";
+
+  const heading = document.createElement("h1");
+  heading.textContent = resource.name;
+
+  const category = document.createElement("p");
+  category.className = "resource-meta";
+  category.textContent = `${resource.category} · ${resource.city}`;
+
+  detailContainer.append(back, heading, category);
+
+  addTextElement(detailContainer, "p", resource.description);
+
+  // Main action link, such as an interest form or service information.
+  if (resource.actionUrl) {
+    const actionSection = addSection(detailContainer, "Get started");
+
+    addExternalLink(
+      actionSection,
+      resource.actionLabel || "Get more information",
+      resource.actionUrl,
+      "primary-button"
+    );
+  }
+
+  // Contact information.
+  const contactSection = addSection(detailContainer, "Contact & location");
+
+  addTextElement(contactSection, "p", resource.address
+    ? `Address: ${resource.address}`
+    : "");
+
+  addPhoneLink(contactSection, resource.phone);
+
+  if (resource.website) {
+    addExternalLink(
+      contactSection,
+      "Visit official website ↗",
+      resource.website
+    );
+  }
+
+  // Audience, cost, and eligibility.
+  const eligibilitySection = addSection(
+    detailContainer,
+    "Eligibility & cost"
+  );
+
+  addTextElement(
+    eligibilitySection,
+    "p",
+    resource.audience ? `Who it's for: ${resource.audience}` : ""
+  );
+
+  addTextElement(
+    eligibilitySection,
+    "p",
+    resource.cost ? `Cost: ${resource.cost}` : ""
+  );
+
+  addTextElement(
+    eligibilitySection,
+    "p",
+    resource.eligibility
+      ? `Eligibility details: ${resource.eligibility}`
+      : ""
+  );
+
+  if (resource.serviceArea?.length) {
+    addTextElement(
+      eligibilitySection,
+      "h3",
+      "Service area"
+    );
+
+    addList(eligibilitySection, resource.serviceArea);
+  }
+
+  // Appointment requirements and important notes.
+  if (resource.appointment || resource.importantNote) {
+    const notesSection = addSection(
+      detailContainer,
+      "Before you go"
+    );
+
+    if (resource.appointment) {
+      addTextElement(
+        notesSection,
+        "p",
+        resource.appointment,
+        "important-note"
+      );
+    }
+
+    if (resource.importantNote) {
+      addTextElement(
+        notesSection,
+        "p",
+        resource.importantNote
+      );
+    }
+  }
+
+  // Opening hours.
+  if (resource.hours) {
+    const hoursSection = addSection(
+      detailContainer,
+      "Hours"
+    );
+
+    const hoursList = document.createElement("ul");
+
+    Object.entries(resource.hours).forEach(([day, hours]) => {
+      const item = document.createElement("li");
+      item.textContent = `${day}: ${hours}`;
+      hoursList.appendChild(item);
+    });
+
+    hoursSection.appendChild(hoursList);
+  }
+
+  // Services and available items.
+  if (resource.services?.length) {
+    const servicesSection = addSection(
+      detailContainer,
+      "Available items & services"
+    );
+
+    addList(servicesSection, resource.services);
+  }
+
+  // Source for checking current information.
+  if (resource.source) {
+    const sourceSection = addSection(
+      detailContainer,
+      "Information source"
+    );
+
+    addExternalLink(
+      sourceSection,
+      "Check the source ↗",
+      resource.source
+    );
+  }
+
+  const reminder = document.createElement("p");
+  reminder.className = "resource-meta";
+  reminder.textContent =
+    "Details can change. Contact the provider to confirm current hours, eligibility, and requirements.";
+
+  detailContainer.appendChild(reminder);
+}
 
 const requestedId = parameters.get("id");
 
 if (requestedId) {
-  const resource = resources.find(
-    item => item.id === requestedId
-  );
-
-  // Hide the directory controls when viewing one resource.
   document.querySelector(".filter-panel").hidden = true;
   document.querySelector(".results-heading").hidden = true;
   resultsContainer.hidden = true;
 
   detailContainer.hidden = false;
-  detailContainer.replaceChildren();
 
-  if (!resource) {
-    const message = document.createElement("p");
-    message.textContent =
-      "This resource could not be found. Please return to the directory.";
+  const resource = resources.find(
+    item => item.id === requestedId
+  );
+
+  if (resource) {
+    renderResourceDetail(resource);
+  } else {
+    detailContainer.replaceChildren();
+
+    addTextElement(
+      detailContainer,
+      "h1",
+      "Resource not found"
+    );
+
+    addTextElement(
+      detailContainer,
+      "p",
+      "This resource could not be found. Please return to the directory."
+    );
 
     const back = document.createElement("a");
     back.href = "resources.html";
     back.textContent = "← Back to resources";
 
-    detailContainer.append(message, back);
-  } else {
-    const back = document.createElement("a");
-    back.href = "resources.html";
-    back.textContent = "← Back to all resources";
-
-    const heading = document.createElement("h1");
-    heading.textContent = resource.name;
-
-    const category = document.createElement("p");
-    category.className = "resource-meta";
-    category.textContent =
-      `${resource.category} · ${resource.city}`;
-
-    const description = document.createElement("p");
-    description.textContent = resource.description;
-
-    const audience = document.createElement("p");
-    audience.textContent = `Who it's for: ${resource.audience}`;
-
-    const cost = document.createElement("p");
-    cost.textContent = `Cost: ${resource.cost}`;
-
-    const website = document.createElement("a");
-    website.href = resource.website;
-    website.target = "_blank";
-    website.rel = "noopener noreferrer";
-    website.textContent = "Visit official website ↗";
-
-    detailContainer.append(
-      back, heading, category, description,
-      audience, cost, website
-    );
-
-    detailContainer.classList.add("detail-panel");
+    detailContainer.appendChild(back);
   }
+} else {
+  filterResources();
 }
