@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,6 +107,32 @@
       </div>
     </section>
   </main>
+ 
+  <section class="section container">
+    <p class="eyebrow">HELP US GROW</p>
+    <h2>Know a resource we're missing?</h2>
+    <p>Suggest an organization for our team to review.</p>
+  
+    <form id="suggest-form" class="suggest-form">
+      <label for="suggest-name">Organization name</label>
+      <input id="suggest-name" name="name" required maxlength="120">
+  
+      <label for="suggest-url">Official website</label>
+      <input id="suggest-url" name="url" type="url" required>
+  
+      <label for="suggest-category">Category</label>
+      <select id="suggest-category" name="category" required>
+        <option value="">Choose a category</option>
+        <option>Education</option>
+        <option>Food & Essentials</option>
+        <option>Recreation</option>
+        <option>Volunteering</option>
+      </select>
+  
+      <button class="button" type="submit">Submit suggestion</button>
+      <p id="suggest-feedback" role="status"></p>
+    </form>
+  </section>
 
   <footer class="site-footer">
     <div class="container footer-content">
