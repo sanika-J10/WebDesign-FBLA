@@ -119,7 +119,111 @@ const resources = [
     ],
     featured: false,
     verified: false
-  }
+  },
+  {
+    id: "the-place-food-pantry",
+    name: "The Place of Forsyth County — Food Pantry",
+    category: "Food & Essentials",
+    city: "Cumming",
+    description:
+      "Provides a client-choice food pantry, online grocery ordering, emergency food boxes, and mobile food pantry distributions for people experiencing food insecurity.",
+    audience:
+      "Individuals and families in need who live in Forsyth or Dawson County",
+    cost: "Free",
+    website: "https://www.theplacega.org/",
+    actionLabel: "Visit The Place Website",
+    actionUrl: "https://www.theplacega.org/",
+    address:
+      "Forsyth location: 2550 The Place Circle, Cumming, GA 30040. Dawson location: 829 GA 9 N, Dawsonville, GA 30534.",
+    phone: "770-887-1098",
+    serviceArea: ["Cumming", "Dawsonville"],
+    importantNote:
+      "Initial client registration requires photo ID and proof of address in Forsyth or Dawson County. According to the information collected, online food ordering is available from Thursday at 5:00 AM through Monday at 11:59 PM. Confirm the current schedule and ordering process with The Place.",
+    source: "https://www.theplacega.org/",
+    tags: [
+      "food",
+      "food pantry",
+      "groceries",
+      "emergency food",
+      "food boxes",
+      "mobile pantry",
+      "online ordering",
+      "Forsyth County",
+      "Dawson County"
+    ],
+    featured: false,
+    verified: false
+  },
+  {
+    id: "the-place-financial-assistance",
+    name: "The Place of Forsyth County — Emergency Financial Assistance",
+    category: "Financial Assistance",
+    city: "Cumming",
+    description:
+      "Offers partial emergency financial assistance to eligible households facing a temporary crisis. Assistance may help with rent, utilities, and prescription costs.",
+    audience:
+      "Eligible households in Forsyth and Dawson counties, particularly households with children and senior households facing emergencies",
+    cost: "Free; assistance is partial and eligibility-based",
+    website: "https://www.theplacega.org/",
+    actionLabel: "View Assistance Information",
+    actionUrl: "https://www.theplacega.org/",
+    address:
+      "Forsyth location: 2550 The Place Circle, Cumming, GA 30040. Dawson location: 829 GA 9 N, Dawsonville, GA 30534.",
+    phone: "770-887-1098",
+    serviceArea: ["Cumming", "Dawsonville"],
+    importantNote:
+      "Ongoing financial assistance is not offered. Applicants may need photo ID, a current signed lease or utility bill, proof of income, and financial or bank statements from the past 30 days. Contact The Place to confirm current requirements and availability.",
+    source: "https://www.theplacega.org/",
+    tags: [
+      "financial assistance",
+      "emergency aid",
+      "rent",
+      "utilities",
+      "prescription costs",
+      "eviction prevention",
+      "bills",
+      "Forsyth County",
+      "Dawson County"
+    ],
+    featured: false,
+    verified: false
+  },
+  {
+    id: "the-place-employment-education",
+    name: "The Place of Forsyth County — Employment & Adult Education",
+    category: "Education",
+    city: "Cumming",
+    description:
+      "Offers skill-building and coaching intended to help adults improve practical skills and work toward long-term financial independence. Reported offerings include GED preparation, English language classes, financial literacy, parenting classes, and resume and interview preparation.",
+    audience:
+      "Adults in Forsyth and Dawson counties seeking education, employment preparation, or practical life skills",
+    cost: "Reported as free; confirm with the organization",
+    website: "https://www.theplacega.org/",
+    actionLabel: "Explore Programs",
+    actionUrl: "https://www.theplacega.org/",
+    address:
+      "Forsyth location: 2550 The Place Circle, Cumming, GA 30040. Dawson location: 829 GA 9 N, Dawsonville, GA 30534.",
+    phone: "770-887-1098",
+    serviceArea: ["Cumming", "Dawsonville"],
+    importantNote:
+      "The information collected says interested participants can submit an intake form and staff follow up within 24 hours to arrange coaching or class placement. Confirm current programs and intake instructions with The Place.",
+    source: "https://www.theplacega.org/",
+    tags: [
+      "education",
+      "adult education",
+      "GED",
+      "ESL",
+      "English classes",
+      "employment",
+      "job training",
+      "resume",
+      "interview skills",
+      "financial literacy",
+      "parenting classes"
+    ],
+    featured: false,
+    verified: false
+  },
 ];
 
 const events = [
