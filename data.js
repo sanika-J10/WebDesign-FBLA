@@ -360,15 +360,5 @@ const resources = [
 ];
 
 const events = [
-  {
-    id: "sample-event",
-    name: "Example Community Workshop",
-    category: "Education",
-    city: "Cumming",
-    date: "2027-01-15",
-    description:
-      "Example event record. Replace with a verified event.",
-    website: "https://example.org",
-    verified: false
-  }
+  // Add each verified community event here.
 ];
