@@ -27,6 +27,7 @@ if (!allowedCategories.includes(categoryFilter.value)) {
 
 function filterResources() {
   const query = queryInput.value.trim().toLowerCase();
+  const organizationId = parameters.get("organization");
   const selectedCategory = categoryFilter.value;
   const selectedCity = cityFilter.value;
   const sortBy = sortFilter.value;
