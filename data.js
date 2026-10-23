@@ -1,3 +1,19 @@
+const organizations = [
+  {
+    id: "forsyth-county-library",
+    name: "Forsyth County Public Library",
+    category: "Education",
+    description:
+      "A public library system offering teen learning resources, reading and writing opportunities, leadership programs, volunteering, and events at multiple branches.",
+    website: "https://www.focolibrary.org/teens",
+    phone: "770-781-9840",
+    address:
+      "Multiple branches throughout Forsyth County, including Cumming Library and Denmark Library.",
+    serviceArea: ["Cumming", "Alpharetta"],
+    featured: true
+  }
+];
+
 const resources = [
   {
     id: "nfcc-financial-assistance",
