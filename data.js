@@ -240,6 +240,123 @@ const resources = [
     featured: false,
     verified: false
   },
+  {
+    id: "library-teen-learning",
+    organizationId: "forsyth-county-library",
+    name: "Teen Learning & Digital Resources",
+    category: "Education",
+    city: "Cumming",
+    description:
+      "Explore free digital learning tools, research databases, e-books, audiobooks, and reading resources through Forsyth County Public Library. These tools can help students with homework, independent learning, and finding their next book.",
+    audience: "Teens, students, and library users; some digital services may require a library card",
+    cost: "Free library resources; individual services may have their own requirements",
+    website: "https://www.focolibrary.org/teens",
+    actionLabel: "Explore Teen Resources",
+    actionUrl: "https://www.focolibrary.org/teens",
+    serviceArea: ["Cumming", "Alpharetta"],
+    tags: [
+      "library",
+      "homework",
+      "research",
+      "learning",
+      "databases",
+      "ebooks",
+      "audiobooks",
+      "reading",
+      "digital resources"
+    ],
+    featured: true,
+    verified: false
+  },
+  {
+    id: "library-teen-writers-club",
+    organizationId: "forsyth-county-library",
+    name: "Teen Writers' Club",
+    category: "Education",
+    city: "Cumming",
+    description:
+      "A writing group for students in grades 6–12 who want to develop their writing, discuss tips and strategies, share original work, and receive feedback from other writers.",
+    audience: "Students in grades 6–12",
+    cost: "Free; check the event listing for current details",
+    website: "https://www.focolibrary.org/teens-Reading-Writing",
+    actionLabel: "View Writing Programs",
+    actionUrl: "https://www.focolibrary.org/teens-Reading-Writing",
+    address: "Cumming Library, Cumming, Georgia",
+    serviceArea: ["Cumming"],
+    importantNote:
+      "Check the official event calendar for upcoming meeting dates, times, and any registration requirements.",
+    tags: [
+      "library",
+      "writing",
+      "creative writing",
+      "writers club",
+      "storytelling",
+      "feedback",
+      "English",
+      "grades 6-12"
+    ],
+    featured: false,
+    verified: false
+  },
+  {
+    id: "library-teen-advisory-board",
+    organizationId: "forsyth-county-library",
+    name: "Teen Advisory Board",
+    category: "Volunteering",
+    city: "Cumming",
+    description:
+      "A leadership opportunity where teens can contribute ideas for library programs, help plan and promote activities, and share feedback about library services for young people.",
+    audience: "Teens in grades 6–12; branch-specific participation requirements may apply",
+    cost: "Free",
+    website: "https://www.focolibrary.org/teens",
+    actionLabel: "Explore Teen Opportunities",
+    actionUrl: "https://www.focolibrary.org/teens",
+    address: "Program availability varies by library branch",
+    serviceArea: ["Cumming", "Alpharetta"],
+    importantNote:
+      "Check the official events calendar for recruitment information, meetings, and membership requirements. Opportunities may differ by branch.",
+    tags: [
+      "library",
+      "leadership",
+      "volunteering",
+      "community service",
+      "student leadership",
+      "teen advisory board",
+      "planning",
+      "grades 6-12"
+    ],
+    featured: false,
+    verified: false
+  },
+  {
+    id: "library-volunteen",
+    organizationId: "forsyth-county-library",
+    name: "Summer VolunTEEN",
+    category: "Volunteering",
+    city: "Cumming",
+    description:
+      "A summer volunteer opportunity for eligible teens to assist library staff with summer reading activities, help patrons participate, and support library materials and events.",
+    audience: "Rising grades 9–12; participants must be at least 14 years old",
+    cost: "Free volunteer opportunity",
+    website: "https://events.forsythpl.org/volunteer",
+    actionLabel: "View Volunteer Requirements",
+    actionUrl: "https://events.forsythpl.org/volunteer",
+    address: "Multiple library branches; confirm the placement when applying",
+    serviceArea: ["Cumming", "Alpharetta"],
+    importantNote:
+      "This is a seasonal summer program. The 2026 application window is closed; the library says the 2027 application process will begin in February 2027. Check the official page for updated requirements.",
+    tags: [
+      "library",
+      "volunteering",
+      "summer volunteer",
+      "VolunTEEN",
+      "community service",
+      "summer reading",
+      "teen volunteer"
+    ],
+    featured: false,
+    verified: false
+  },
 ];
 
 const events = [
