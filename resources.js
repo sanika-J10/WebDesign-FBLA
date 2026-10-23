@@ -371,7 +371,7 @@ function renderResourceDetail(resource) {
 
   detailContainer.appendChild(reminder);
 }
-
+const requestedOrganization = parameters.get("organization");
 const requestedId = parameters.get("id");
 
 if (requestedId) {
@@ -409,5 +409,22 @@ if (requestedId) {
     detailContainer.appendChild(back);
   }
 } else {
+  if (requestedOrganization) {
+    const organization = organizations.find(
+      item => item.id === requestedOrganization
+    );
+
+    if (organization) {
+      queryInput.value = "";
+      categoryFilter.value = "";
+      cityFilter.value = "";
+
+      const heading = document.querySelector(".results-heading");
+      if (heading) {
+        heading.textContent = organization.name + " — Programs & Resources";
+      }
+    }
+  }
+
   filterResources();
 }
