@@ -65,7 +65,16 @@ function filterResources() {
       !selectedCity ||
       resource.city === selectedCity;
 
-    return matchesQuery && matchesCategory && matchesCity;
+    const matchesOrganization =
+      !organizationId ||
+      resource.organizationId === organizationId;
+
+    return (
+      matchesQuery &&
+      matchesCategory &&
+      matchesCity &&
+      matchesOrganization
+);
   });
 
   results.sort((a, b) =>
