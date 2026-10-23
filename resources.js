@@ -185,6 +185,40 @@ function renderResourceDetail(resource) {
   category.textContent = `${resource.category} · ${resource.city}`;
 
   detailContainer.append(back, heading, category);
+  const organization = (organizations || []).find(
+    item => item.id === resource.organizationId
+  );
+
+  if (organization) {
+    const organizationSection = addSection(
+      detailContainer,
+      "Part of this organization"
+    );
+
+    addTextElement(
+      organizationSection,
+      "p",
+      organization.name
+    );
+
+    addTextElement(
+      organizationSection,
+      "p",
+      organization.description
+    );
+
+    addExternalLink(
+      organizationSection,
+      "View all library programs →",
+      "resources.html?organization=" + organization.id
+    );
+
+    addExternalLink(
+      organizationSection,
+      "Visit official library website ↗",
+      organization.website
+    );
+  }
 
   addTextElement(detailContainer, "p", resource.description);
 
