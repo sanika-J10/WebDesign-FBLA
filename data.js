@@ -360,5 +360,94 @@ const resources = [
 ];
 
 const events = [
-  // Add each verified community event here.
+    {
+        title: "Alpharetta Farmers Market",
+        date: "2026-10-24",
+        time: "08:30",
+        city: "Alpharetta",
+        location: "Downtown Alpharetta",
+        category: "Community",
+        description: "Browse a Saturday morning market featuring local vendors selling fresh produce, baked goods, cheese, meats, and other foods.",
+        website: "https://www.awesomealpharetta.com/events/dont-miss-events/"
+    },
+    {
+        title: "Paint the Town Exhibition",
+        date: "2026-10-24",
+        time: "10:00",
+        city: "Alpharetta",
+        location: "Alpharetta Arts Center",
+        category: "Arts & Culture",
+        description: "Explore artwork created during Alpharetta's Paint the Town plein-air event, where artists paint outdoor scenes inspired by local places.",
+        website: "https://www.alpharetta.ga.us/city-events"
+    },
+    {
+        title: "Teen Writers' Club",
+        date: "2026-10-27",
+        time: "18:30",
+        city: "Cumming",
+        location: "Cumming Library",
+        category: "Education",
+        description: "A library program for students in grades 6–12 who want to explore writing and connect with other young writers.",
+        website: "https://www.forsythpl.org/cumming-library"
+    },
+    {
+        title: "A History in Horror Movies",
+        date: "2026-10-29",
+        time: "18:30",
+        city: "Cumming",
+        location: "Cumming Library",
+        category: "Arts & Culture",
+        description: "Discover the history of horror movies through this library program. Check the official listing for program details and any attendance requirements.",
+        website: "https://www.forsythpl.org/cumming-library"
+    },
+    {
+        title: "Christmas Arts & Crafts Festival",
+        date: "2026-11-14",
+        time: "09:00",
+        city: "Cumming",
+        location: "Lanier Tech Conference Center, 111 Pilgrim Mill Road",
+        category: "Arts & Culture",
+        description: "Shop for handmade gifts and explore work by artists and craftspeople, including pottery, paintings, jewelry, woodwork, textiles, and more.",
+        website: "https://cummingartscenter.com/event-item/christmas-arts-crafts-festival-2/"
+    },
+    {
+        title: "Cumming City Center Winter/Holiday Market",
+        date: "2026-11-21",
+        time: "10:00",
+        city: "Cumming",
+        location: "Cumming City Center, 423 Canton Road",
+        category: "Community",
+        description: "Explore a holiday market featuring more than 100 vendors, live music, activities for kids, and photo opportunities with Santa.",
+        website: "https://www.cityofcumming.net/event/city-center-winter-holiday-market"
+    },
+    {
+        title: "Season of Celebration Tree Lighting",
+        date: "2026-11-21",
+        time: "",
+        city: "Alpharetta",
+        location: "Downtown Alpharetta",
+        category: "Community",
+        description: "Celebrate the start of the holiday season with a community tree-lighting event featuring seasonal entertainment and family activities.",
+        website: "https://www.awesomealpharetta.com/events/dont-miss-events/"
+    },
+    {
+        title: "The Lighting of Avalon",
+        date: "2026-11-22",
+        time: "",
+        city: "Alpharetta",
+        location: "Avalon",
+        category: "Community",
+        description: "Kick off the holiday season at Avalon with festive music, seasonal activities, the opening of Avalon on Ice, and a holiday tree lighting.",
+        website: "https://www.awesomealpharetta.com/events/dont-miss-events/"
+    },
+    {
+        title: "Lights on The Loop",
+        date: "2026-12-04",
+        time: "",
+        city: "Alpharetta",
+        location: "Alpha Loop",
+        category: "Recreation",
+        description: "Visit a seasonal light display along a one-mile stretch of the Alpha Loop trail. The listing describes a holiday display running into early January.",
+        website: "https://exploregeorgia.org/alpharetta/events"
+    }
 ];
