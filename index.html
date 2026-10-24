@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover community resources, local programs, and events around Cumming and Alpharetta, Georgia.">
-  <title>CommonGround | Community Resources</title>
+  <meta name="description" content="Find community services, local organizations, programs, and events around Alpharetta and Cumming, Georgia.">
+  <title>CommonGround | Your Community, Connected</title>
   <link rel="stylesheet" href="style.css">
   <script src="data.js" defer></script>
   <script src="app.js" defer></script>
@@ -15,7 +16,6 @@
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
       <a class="brand" href="index.html">Common<span>Ground</span></a>
-
       <div class="nav-links">
         <a href="index.html" aria-current="page">Home</a>
         <a href="resources.html">Explore</a>
@@ -29,11 +29,10 @@
     <section class="hero">
       <div class="container hero-content">
         <p class="eyebrow">YOUR COMMUNITY, CONNECTED</p>
-        <h1>Find what you need.<br>Discover what's nearby.</h1>
+        <h1>Find what you need.<br>Discover what's possible.</h1>
         <p class="hero-description">
-          Explore local programs, community services, and
-          opportunities to get involved around North Fulton
-          and Forsyth County.
+          A simpler way to explore local support, organizations,
+          programs, and events around Alpharetta and Cumming.
         </p>
 
         <form id="home-search" class="search-form" role="search">
@@ -45,41 +44,49 @@
             type="search"
             placeholder="Try “tutoring” or “food assistance”"
           >
-          <button type="submit">Find resources</button>
+          <button type="submit">Search resources →</button>
         </form>
 
         <p class="search-hint">
-          Explore education, essential services, events, and more.
+          Search by service, organization, program, or keyword.
         </p>
       </div>
     </section>
 
     <section class="section container">
-      <p class="eyebrow">START EXPLORING</p>
-      <h2>What are you looking for?</h2>
-      <div class="category-grid">
-        <a class="category-card" href="resources.html?category=Education">
-          <span class="category-icon" aria-hidden="true">✳</span>
-          <h3>Education & Youth</h3>
-          <p>Learning programs and youth opportunities.</p>
-        </a>
+      <p class="eyebrow">A PLACE TO START</p>
+      <h2>What brings you here?</h2>
+      <p>
+        Whether you need a helping hand or want to get more involved,
+        start with the path that fits you.
+      </p>
 
+      <div class="category-grid">
         <a class="category-card" href="resources.html?category=Food%20%26%20Essentials">
           <span class="category-icon" aria-hidden="true">♡</span>
-          <h3>Food & Essentials</h3>
-          <p>Basic-needs services and community support.</p>
+          <h3>Find Support</h3>
+          <p>
+            Explore food assistance, essential services, financial
+            support, and other community resources.
+          </p>
         </a>
 
-        <a class="category-card" href="resources.html?category=Recreation">
+        <a class="category-card" href="events.html">
           <span class="category-icon" aria-hidden="true">↗</span>
-          <h3>Parks & Recreation</h3>
-          <p>Activities, facilities, and ways to get outside.</p>
+          <h3>Get Involved</h3>
+          <p>
+            Find local events, activities, volunteering, and
+            opportunities to participate.
+          </p>
         </a>
 
-        <a class="category-card" href="resources.html?category=Volunteering">
-          <span class="category-icon" aria-hidden="true">♡</span>
-          <h3>Volunteer</h3>
-          <p>Find ways to contribute to your community.</p>
+        <a class="category-card" href="resources.html">
+          <span class="category-icon" aria-hidden="true">✳</span>
+          <h3>Discover the Community</h3>
+          <p>
+            Get to know local organizations, youth programs,
+            recreation, and community services.
+          </p>
         </a>
       </div>
 
@@ -97,50 +104,66 @@
     <section class="community-banner">
       <div class="container banner-content">
         <div>
-          <p class="eyebrow">MAKE A DIFFERENCE</p>
-          <h2>Small actions build stronger communities.</h2>
-          <p>Discover local events and ways to get involved.</p>
+          <p class="eyebrow">HAPPENING AROUND YOU</p>
+          <h2>There's more to community than a place on the map.</h2>
+          <p>
+            Find an upcoming event, learn something new, or discover
+            a way to contribute locally.
+          </p>
         </div>
         <a class="button button-light" href="events.html">
           Explore events →
         </a>
       </div>
     </section>
+
+    <section class="section container">
+      <p class="eyebrow">HELP US GROW</p>
+      <h2>Know a resource we're missing?</h2>
+      <p>
+        Suggest an organization for our team to review and help make
+        this directory more useful to the community.
+      </p>
+
+      <form id="suggest-form" class="suggest-form">
+        <label for="suggest-name">Organization name</label>
+        <input
+          id="suggest-name"
+          name="name"
+          required
+          maxlength="120"
+        >
+
+        <label for="suggest-url">Official website</label>
+        <input
+          id="suggest-url"
+          name="url"
+          type="url"
+          required
+        >
+
+        <label for="suggest-category">Category</label>
+        <select id="suggest-category" name="category" required>
+          <option value="">Choose a category</option>
+          <option>Education</option>
+          <option>Food & Essentials</option>
+          <option>Recreation</option>
+          <option>Volunteering</option>
+        </select>
+
+        <button class="button" type="submit">Submit suggestion</button>
+        <p id="suggest-feedback" role="status"></p>
+      </form>
+    </section>
   </main>
- 
-  <section class="section container">
-    <p class="eyebrow">HELP US GROW</p>
-    <h2>Know a resource we're missing?</h2>
-    <p>Suggest an organization for our team to review.</p>
-  
-    <form id="suggest-form" class="suggest-form">
-      <label for="suggest-name">Organization name</label>
-      <input id="suggest-name" name="name" required maxlength="120">
-  
-      <label for="suggest-url">Official website</label>
-      <input id="suggest-url" name="url" type="url" required>
-  
-      <label for="suggest-category">Category</label>
-      <select id="suggest-category" name="category" required>
-        <option value="">Choose a category</option>
-        <option>Education</option>
-        <option>Food & Essentials</option>
-        <option>Recreation</option>
-        <option>Volunteering</option>
-      </select>
-  
-      <button class="button" type="submit">Submit suggestion</button>
-      <p id="suggest-feedback" role="status"></p>
-    </form>
-  </section>
 
   <footer class="site-footer">
     <div class="container footer-content">
       <a class="brand brand-footer" href="index.html">Common<span>Ground</span></a>
       <p>An independent student-created community directory.</p>
       <div>
-        <a href="resources.html">Explore</a>
-        <a href="events.html">Events</a>
+        <a href="resources.html">Explore resources</a>
+        <a href="events.html">Community events</a>
         <a href="saved.html">Saved resources</a>
       </div>
       <p class="footer-note">
