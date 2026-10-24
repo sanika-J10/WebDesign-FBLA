@@ -109,7 +109,46 @@ function createEventCard(item) {
     link.rel = "noopener noreferrer";
     link.textContent = "Official event details ↗";
 
-    card.append(date, title, meta, time, location, description, link);
+        const actions = document.createElement("div");
+    actions.className = "card-actions";
+
+    const saveButton = document.createElement("button");
+    saveButton.type = "button";
+    saveButton.className = "save-button";
+
+    function updateSaveButton() {
+        const saved = isEventStored(SAVED_EVENTS_KEY, item);
+        saveButton.textContent = saved ? "♥ Saved" : "♡ Save Event";
+        saveButton.setAttribute("aria-pressed", String(saved));
+    }
+
+    saveButton.addEventListener("click", () => {
+        toggleStoredEvent(SAVED_EVENTS_KEY, item);
+        updateSaveButton();
+    });
+
+    const weekButton = document.createElement("button");
+    weekButton.type = "button";
+    weekButton.className = "save-button";
+
+    function updateWeekButton() {
+        const inWeek = isEventStored(WEEK_EVENTS_KEY, item);
+        weekButton.textContent = inWeek
+            ? "✓ Added to My Week"
+            : "+ Add to My Week";
+        weekButton.setAttribute("aria-pressed", String(inWeek));
+    }
+
+    weekButton.addEventListener("click", () => {
+        toggleStoredEvent(WEEK_EVENTS_KEY, item);
+        updateWeekButton();
+    });
+
+    updateSaveButton();
+    updateWeekButton();
+
+    actions.append(saveButton, weekButton);
+    card.append(date, title, meta, time, location, description, link, actions);
 
     return card;
 }
