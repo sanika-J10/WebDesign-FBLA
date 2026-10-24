@@ -1,4 +1,38 @@
 
+const SAVED_EVENTS_KEY = "commonground-saved-events";
+const WEEK_EVENTS_KEY = "commonground-week-events";
+
+function getStoredEvents(key) {
+    try {
+        const items = JSON.parse(localStorage.getItem(key) || "[]");
+        return Array.isArray(items) ? items : [];
+    } catch {
+        return [];
+    }
+}
+
+function getEventKey(item) {
+    return `${item.title}|${item.date}`;
+}
+
+function isEventStored(key, item) {
+    return getStoredEvents(key).some(
+        saved => getEventKey(saved) === getEventKey(item)
+    );
+}
+
+function toggleStoredEvent(key, item) {
+    const stored = getStoredEvents(key);
+    const exists = stored.some(
+        saved => getEventKey(saved) === getEventKey(item)
+    );
+
+    const updated = exists
+        ? stored.filter(saved => getEventKey(saved) !== getEventKey(item))
+        : [...stored, item];
+
+    localStorage.setItem(key, JSON.stringify(updated));
+}
 const eventQuery = document.querySelector("#event-query");
 const eventCategory = document.querySelector("#event-category");
 const eventCity = document.querySelector("#event-city");
