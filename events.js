@@ -101,7 +101,7 @@ function filterEvents() {
   today.setHours(0, 0, 0, 0);
 
   const upcoming = events.filter(eventItem => {
-    if (!eventItem.date || !eventItem.name) return false;
+    if (!eventItem.date || !eventItem.title) return false;
 
     return getEventDate(eventItem.date) >= today;
   });
