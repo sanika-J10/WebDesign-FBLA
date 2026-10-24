@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saved Resources | CommonGround</title>
+  <title>My Saved Items | CommonGround</title>
   <link rel="stylesheet" href="style.css">
   <script src="data.js" defer></script>
   <script src="app.js" defer></script>
@@ -26,9 +26,26 @@
 
   <main id="main" class="container section">
     <p class="eyebrow">YOUR SHORTLIST</p>
-    <h1>Resources worth keeping.</h1>
-    <p>Keep useful community information close at hand.</p>
-    <div id="saved-resources" class="resource-grid"></div>
+    <h1>Things worth keeping.</h1>
+    <p>Keep useful community resources and upcoming events close at hand.</p>
+
+    <section class="section" aria-labelledby="saved-resources-heading">
+      <h2 id="saved-resources-heading">My Saved Resources</h2>
+      <p>Community organizations and resources you want to revisit.</p>
+      <div id="saved-resources" class="resource-grid"></div>
+    </section>
+
+    <section class="section" aria-labelledby="saved-events-heading">
+      <h2 id="saved-events-heading">My Saved Events</h2>
+      <p>Events you've bookmarked to check out later.</p>
+      <div id="saved-events" class="resource-grid"></div>
+    </section>
+
+    <section class="section" aria-labelledby="week-heading">
+      <h2 id="week-heading">My Week</h2>
+      <p>Events you're planning to attend, organized by date.</p>
+      <div id="week-items" class="resource-grid"></div>
+    </section>
   </main>
 
   <footer class="site-footer">
